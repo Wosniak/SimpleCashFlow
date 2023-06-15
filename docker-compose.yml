@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  
+  DataBase:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: t3st#123
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports: 
+      - 5432:5432
+    volumes:
+      - /mnt/d/Sandbox/databases/SimpleCashFlow/:/var/lib/postgresql/data
+
+  simplecashflow.webapi:
+    image: ${DOCKER_REGISTRY-}simplecashflowwebapi
+    build:
+      context: .
+      dockerfile: SimpleCashFlow.WebApi/Dockerfile
+    depends_on:
+      - DataBase
