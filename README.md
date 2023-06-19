@@ -76,7 +76,7 @@ The uri to access the helth check is: \<Minimal Api URI\>/hc
 
 ### Loggin
 
-For logging purposes, the solution uses Serilog Packege. 
+For logging purposes, the solution uses Serilog Package. 
 
 The choice is based on it´s many possible ways to store log, going from files, to multiple types of data bases.
 
@@ -88,9 +88,11 @@ To run the project, is required an external Identity provider that implements Op
 
 To configure your IdP, change the Authority and Audience paramenter on IdP Section of SimpleCashFlow.WebApi appsettings.json, inserting the correct values for your environment
 
-On development fase, Auth0 was a chaice as IdP.
+On development fase, Auth0 was a choice as IdP.
 
-To configure
+If you chose to run with docker compose, all data files neede to run Postgress are bundled, there´s no need to run migrations.
+
+If you plan to run localy, it will be needed to run migritions on yous Postgres instance first.
 
 ### Visual Studio 2022 Community
 
