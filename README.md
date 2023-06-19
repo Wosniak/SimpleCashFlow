@@ -38,6 +38,14 @@ Also I need an report with the daily summary of the consolidated balance.
 
 ## Architecture
 
+### C4 Model
+
+![SimpleCashFlow_C4Model-Context drawio](https://github.com/Wosniak/SimpleCashFlow/assets/16797201/452c5abf-55b5-457d-afab-36b685157e72)
+
+![SimpleCashFlow_C4Model-Container drawio (1)](https://github.com/Wosniak/SimpleCashFlow/assets/16797201/2f74089a-2c6f-4d70-9243-feb3a18aed68)
+
+![SimpleCashFlow_C4Model-Component drawio](https://github.com/Wosniak/SimpleCashFlow/assets/16797201/2e61c181-d81f-4d0a-b26e-a6a56b06b3c4)
+
 ## Patterns
 
 ### CQRS
@@ -62,7 +70,13 @@ For more information about SOLID Principles: [SOLID Principles on Wikipedia](htt
 
 ## How to run the application:
 
-To run the project, is required an external
+To run the project, is required an external Identity provider that implements OpenID/OAuth Reference.
+
+To configure your IdP, change the URI paramenter on IdP Section of SimpleCashFlow.WebApi appsettings.json
+
+On development fase, Auth0 was a chaice as IdP.
+
+To configure
 
 ### Visual Studio 2022 Community
 
@@ -80,7 +94,6 @@ To run without a docker, some configuration/requirements are needed:
 - Set Minimal Api Project appsetings. (SimpleCashFlow.WebApi) as a startup project.
 
 With those ajustmens, just run the project.
-
 
 ### From Command Line
 
