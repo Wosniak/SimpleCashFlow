@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>f18d52a6-317d-49ba-9c76-4c353240a5aa</ProjectGuid>
+    <ProjectGuid>2e71b775-266e-418b-b50f-9ccf9c2141dc</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
     <DockerServiceName>simplecashflow.webapi</DockerServiceName>

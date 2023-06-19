@@ -9,21 +9,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCashFlow.Domain", "Si
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCashFlow.Application", "SimpleCashFlow.Application\SimpleCashFlow.Application.csproj", "{75ED8348-7CCC-4965-9A1E-07DDC2DEEF1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCashFlow.Infrastructure.Data", "SimpleCashFlow.Infrastructure.Data\SimpleCashFlow.Infrastructure.Data.csproj", "{4ECB61DF-B09C-41E3-878C-010ABAC416A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCashFlow.Infrastructure.Data", "SimpleCashFlow.Infrastructure.Data\SimpleCashFlow.Infrastructure.Data.csproj", "{4ECB61DF-B09C-41E3-878C-010ABAC416A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCashFlow.Infrastructure.Auth", "SimpleCashFlow.Infrastructure.Auth\SimpleCashFlow.Infrastructure.Auth.csproj", "{4302947E-1690-4A60-AE72-DEB191F5523E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCashFlow.Presentation", "SimpleCashFlow.Presentation\SimpleCashFlow.Presentation.csproj", "{3CDE2651-FB49-42FC-8FDF-94A3F2AA1280}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCashFlow.Presentation", "SimpleCashFlow.Presentation\SimpleCashFlow.Presentation.csproj", "{3CDE2651-FB49-42FC-8FDF-94A3F2AA1280}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCashFlow.WebApi", "SimpleCashFlow.WebApi\SimpleCashFlow.WebApi.csproj", "{C3EAA09A-B441-4959-96EA-8403DD30831F}"
-EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F18D52A6-317D-49BA-9C76-4C353240A5AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCashFlow.WebApi", "SimpleCashFlow.WebApi\SimpleCashFlow.WebApi.csproj", "{C3EAA09A-B441-4959-96EA-8403DD30831F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{AF9BF5DA-232C-4553-912F-0979E5506C5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCashFlow.Architecture.Tests", "SimpleCashFlow.Architecture.Tests\SimpleCashFlow.Architecture.Tests.csproj", "{3EEF110C-9450-48B7-A247-AC5F22BFDCF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCashFlow.Architecture.Tests", "SimpleCashFlow.Architecture.Tests\SimpleCashFlow.Architecture.Tests.csproj", "{3EEF110C-9450-48B7-A247-AC5F22BFDCF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCashFlow.Tests", "SimpleCashFlow.Tests\SimpleCashFlow.Tests.csproj", "{A9B03C26-2A94-4BAC-BB85-E7A1ABCD5C0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCashFlow.Tests", "SimpleCashFlow.Tests\SimpleCashFlow.Tests.csproj", "{A9B03C26-2A94-4BAC-BB85-E7A1ABCD5C0F}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{2E71B775-266E-418B-B50F-9CCF9C2141DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +41,6 @@ Global
 		{4ECB61DF-B09C-41E3-878C-010ABAC416A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4ECB61DF-B09C-41E3-878C-010ABAC416A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4ECB61DF-B09C-41E3-878C-010ABAC416A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4302947E-1690-4A60-AE72-DEB191F5523E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4302947E-1690-4A60-AE72-DEB191F5523E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4302947E-1690-4A60-AE72-DEB191F5523E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4302947E-1690-4A60-AE72-DEB191F5523E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3CDE2651-FB49-42FC-8FDF-94A3F2AA1280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3CDE2651-FB49-42FC-8FDF-94A3F2AA1280}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CDE2651-FB49-42FC-8FDF-94A3F2AA1280}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -55,10 +49,6 @@ Global
 		{C3EAA09A-B441-4959-96EA-8403DD30831F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3EAA09A-B441-4959-96EA-8403DD30831F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3EAA09A-B441-4959-96EA-8403DD30831F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F18D52A6-317D-49BA-9C76-4C353240A5AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F18D52A6-317D-49BA-9C76-4C353240A5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F18D52A6-317D-49BA-9C76-4C353240A5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F18D52A6-317D-49BA-9C76-4C353240A5AA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3EEF110C-9450-48B7-A247-AC5F22BFDCF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3EEF110C-9450-48B7-A247-AC5F22BFDCF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EEF110C-9450-48B7-A247-AC5F22BFDCF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -67,6 +57,10 @@ Global
 		{A9B03C26-2A94-4BAC-BB85-E7A1ABCD5C0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9B03C26-2A94-4BAC-BB85-E7A1ABCD5C0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9B03C26-2A94-4BAC-BB85-E7A1ABCD5C0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E71B775-266E-418B-B50F-9CCF9C2141DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E71B775-266E-418B-B50F-9CCF9C2141DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E71B775-266E-418B-B50F-9CCF9C2141DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E71B775-266E-418B-B50F-9CCF9C2141DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,7 +69,6 @@ Global
 		{7893FA1E-9F1D-41C0-B1E3-455B70597508} = {287D7AAA-2635-4A72-9B59-EDD432C761BF}
 		{75ED8348-7CCC-4965-9A1E-07DDC2DEEF1B} = {287D7AAA-2635-4A72-9B59-EDD432C761BF}
 		{4ECB61DF-B09C-41E3-878C-010ABAC416A1} = {287D7AAA-2635-4A72-9B59-EDD432C761BF}
-		{4302947E-1690-4A60-AE72-DEB191F5523E} = {287D7AAA-2635-4A72-9B59-EDD432C761BF}
 		{3CDE2651-FB49-42FC-8FDF-94A3F2AA1280} = {287D7AAA-2635-4A72-9B59-EDD432C761BF}
 		{C3EAA09A-B441-4959-96EA-8403DD30831F} = {287D7AAA-2635-4A72-9B59-EDD432C761BF}
 		{3EEF110C-9450-48B7-A247-AC5F22BFDCF6} = {AF9BF5DA-232C-4553-912F-0979E5506C5C}

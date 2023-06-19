@@ -14,7 +14,7 @@ namespace SimpleCashFlow.Application
             services.AddValidatorsFromAssembly(currentAssemby);
 
             return services;
-            
-        } 
+
+        }
     }
 }

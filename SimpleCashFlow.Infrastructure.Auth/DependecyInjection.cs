@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.
 
 namespace SimpleCashFlow.Infrastructure.Auth
 {
@@ -6,6 +7,8 @@ namespace SimpleCashFlow.Infrastructure.Auth
     {
         public static IServiceCollection AddInfrastructureAuth(this IServiceCollection services)
         {
+
+            
 
             return services;
 

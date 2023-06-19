@@ -11,10 +11,10 @@ COPY ["SimpleCashFlow.WebApi/SimpleCashFlow.WebApi.csproj", "SimpleCashFlow.WebA
 RUN dotnet restore "SimpleCashFlow.WebApi/SimpleCashFlow.WebApi.csproj"
 COPY . .
 WORKDIR "/src/SimpleCashFlow.WebApi"
-RUN dotnet build "SimpleCashFlow.WebApi.csproj" -c Release -o /app/build
+RUN dotnet build "SimpleCashFlow.WebApi.csproj" -c Debug -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "SimpleCashFlow.WebApi.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "SimpleCashFlow.WebApi.csproj" -c Debug -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
