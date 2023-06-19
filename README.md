@@ -11,7 +11,7 @@ For domain validation, a FluentValidator implementation was used.
 
 This solution was intended to run under a Docker environment, and the dev docker was supported by a docker-compose with all resources needed to run the application.
 
-The service authentication/authorization is not the scope of the project, so it´s provided by an external Identity Provider that supports OpenId/OAuth implementation, such as Auth0 (recomended).
+The service authentication/authorization is not the scope of the project, so it´s provided by an external Identity Provider that supports OpenId/OAuth implementation, such as Auth0 (recommended).
 
 ## Technologies:
 -	Asp.Net Core 7 Minimum API;
@@ -30,11 +30,11 @@ The service authentication/authorization is not the scope of the project, so it�
 
 As a business owner, I need to control my small business cash flow, with all daily movements (debit and credits) been registered.
 
-Also I need an report with the daily summary of the consolidated balance.
+Also, I need an report with the daily summary of the consolidated balance.
 
 ## Business Requirement
-- An end-point service for movements handling;
-- An end-point for the consolidate report;
+- An endpoint service for movements handling;
+- An endpoint for the consolidate report.
 
 ## Architecture
 
@@ -54,9 +54,9 @@ All operations on the application were based on CQRS (Command and Queries Respon
 In some scenarios, even a separate database is utilized for each purpose. For this project, for simplicity’s sake, all data resides on same place.
 
 ### Materialized View
-For balance summary, a Materialized View was created. A materialized view is basically a pre-calculated data, tah cam be stored for a faster reading operation.
+For balance summary, a Materialized View was created. A materialized view is basically a pre-calculated data, that can be stored for a faster reading operation.
 
-In the aplication, on every command execution an Domain Event is published and handled for the materilized view recalculation.
+In the application, on every command execution a Domain Event is published and handled for the materialized view recalculation.
 
 ### SOLID
 All code is based on SOLID principles: 
@@ -70,29 +70,29 @@ For more information about SOLID Principles: [SOLID Principles on Wikipedia](htt
 
 ### Observability
 
-The web api implements a helth check end point, based on Microsoft.Extensions.Diagnostics.HealthChecks
+The web API implements a health check end point, based on Microsoft.Extensions.Diagnostics.HealthChecks
 
-The uri to access the helth check is: \<Minimal Api URI\>/hc
+The Uri to access the health check is: \<Minimal Api URI\>/hc
 
 ### Loggin
 
 For logging purposes, the solution uses Serilog Package. 
 
-The choice is based on it´s many possible ways to store log, going from files, to multiple types of data bases.
+The choice is based on its many possible ways to store log, going from files to multiple types of data bases.
 
-That flexibility allows to plan the growth of the application and the many possibilities on quering the logs to generate statistics.
+That flexibility allows to plan the growth of the application and the many possibilities on querying the logs to generate statistics.
 
 ## How to run the application:
 
 To run the project, is required an external Identity provider that implements OpenID/OAuth Reference.
 
-To configure your IdP, change the Authority and Audience paramenter on IdP Section of SimpleCashFlow.WebApi appsettings.json, inserting the correct values for your environment
+To configure your IdP, change the Authority and Audience parameter on IdP Section of SimpleCashFlow.WebApi appsettings.json, inserting the correct values for your environment
 
-On development fase, Auth0 was a choice as IdP.
+On development, Auth0 was a choice as IdP.
 
-If you chose to run with docker compose, all data files neede to run Postgress are bundled, there´s no need to run migrations.
+If you chose to run with docker compose, all data files needed to run Postgress are bundled, there´s no need to run migrations.
 
-If you plan to run localy, it will be needed to run migritions on yous Postgres instance first.
+If you plan to run locally, it will be needed to run migrations on your Postgres instance first.
 
 ### Visual Studio 2022 Community
 
@@ -105,11 +105,11 @@ Just open the solution in Visual Studio and start the Docker-Compose project.
 #### Without Docker
 
 To run without a docker, some configuration/requirements are needed:
-- A instance of Postgres runing on 15.3 version;
-- Set the correct connection string to the database on Minimal Api Project appsetings. (SimpleCashFlow.WebApi);
-- Set Minimal Api Project appsetings. (SimpleCashFlow.WebApi) as a startup project.
+- A instance of Postgres running on 15.3 version;
+- Set the correct connection string to the database on Minimal Api Project app settings. (SimpleCashFlow.WebApi);
+- Set Minimal Api Project (SimpleCashFlow.WebApi) as a startup project.
 
-With those ajustmens, just run the project.
+With those adjustments, just run the project.
 
 ### From Command Line
 
@@ -119,5 +119,5 @@ With those ajustmens, just run the project.
 
 ### With Visual Studio Code
 
-To run the project with Visual Studio Code, plese refer to:
+To run the project with Visual Studio Code, please refer to:
 [Use Docker Compose to work with multiple containers (visualstudio.com)](https://code.visualstudio.com/docs/containers/docker-compose)
