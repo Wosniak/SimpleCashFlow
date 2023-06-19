@@ -68,11 +68,25 @@ All code is based on SOLID principles:
 
 For more information about SOLID Principles: [SOLID Principles on Wikipedia](https://en.wikipedia.org/wiki/SOLID)
 
+### Observability
+
+The web api implements a helth check end point, based on Microsoft.Extensions.Diagnostics.HealthChecks
+
+The uri to access the helth check is: \<Minimal Api URI\>/hc
+
+### Loggin
+
+For logging purposes, the solution uses Serilog Packege. 
+
+The choice is based on it´s many possible ways to store log, going from files, to multiple types of data bases.
+
+That flexibility allows to plan the growth of the application and the many possibilities on quering the logs to generate statistics.
+
 ## How to run the application:
 
 To run the project, is required an external Identity provider that implements OpenID/OAuth Reference.
 
-To configure your IdP, change the URI paramenter on IdP Section of SimpleCashFlow.WebApi appsettings.json
+To configure your IdP, change the Authority and Audience paramenter on IdP Section of SimpleCashFlow.WebApi appsettings.json, inserting the correct values for your environment
 
 On development fase, Auth0 was a chaice as IdP.
 
@@ -99,7 +113,7 @@ With those ajustmens, just run the project.
 
 #### Run the docker-compose (no debugging)
 
-    docker-compose -f docker-compose.yml -f docker-compose.yml up -d
+    docker-compose -f docker-compose.yml up -d
 
 ### With Visual Studio Code
 
