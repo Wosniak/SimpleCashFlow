@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  DataBase:
+    container_name: Database
+    image: postgres:15.3
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: t3st#123
+    ports: 
+      - 5432:5432
+    volumes:
+      - ./databases:/var/lib/postgresql/data
+  
+  simplecashflow.webapi:
+    image: ${DOCKER_REGISTRY-}simplecashflowwebapi
+    build:
+      context: .
+      dockerfile: SimpleCashFlow.WebApi/Dockerfile
+    ports: 
+      - 8081:80
+      - 8443:443 
+    volumes:
+      - ./log:/logs  
