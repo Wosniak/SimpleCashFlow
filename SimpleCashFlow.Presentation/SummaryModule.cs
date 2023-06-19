@@ -20,7 +20,7 @@ namespace SimpleCashFlow.Presentation
 
         public SummaryModule() : base("/summary")
         {
-
+            this.RequireAuthorization();
         }
 
         public override void AddRoutes(IEndpointRouteBuilder app)

@@ -65,8 +65,8 @@ builder.Services.AddAuthentication(options =>
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(options =>
 {
-    options.Authority = "https://farago.auth0.com/";
-    options.Audience = "https://localhost:8051";
+    options.Authority = builder.Configuration.GetSection("IdP:Authority").Value;
+    options.Audience = builder.Configuration.GetSection("IdP:Audience").Value;
 });
 builder.Services.AddAuthorization();
 

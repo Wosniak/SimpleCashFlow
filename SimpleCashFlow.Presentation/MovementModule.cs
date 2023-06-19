@@ -20,7 +20,7 @@ namespace SimpleCashFlow.Presentation
 
         public MovementModule() : base("/movement")
         {
-            this.RequireAuthorization();
+            
         }
 
         public override void AddRoutes(IEndpointRouteBuilder app)
