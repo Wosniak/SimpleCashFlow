@@ -19,9 +19,9 @@ namespace SimpleCashFlow.Infrastructure.Data.Repositories
             await _ctx.Movements.AddAsync(cashFlowMovement, cancellationToken);
         }
 
-        public Task Delete(Movement cashFlowMovement, CancellationToken cancellationToken)
+        public void Delete(Movement cashFlowMovement)
         {
-            throw new NotImplementedException();
+            _ctx.Update(cashFlowMovement);
         }
 
         public async Task<bool> MovementExistsAsync(MovementId id, CancellationToken cancellationToken)

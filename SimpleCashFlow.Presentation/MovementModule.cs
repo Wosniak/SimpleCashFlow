@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using SimpleCashFlow.Application.Movements.Commands.CreateMovement;
+using SimpleCashFlow.Application.Movements.Commands.DeleteMovement;
 using SimpleCashFlow.Application.Movements.Commands.UpdateMovement;
 using SimpleCashFlow.Application.Movements.Queries;
 using SimpleCashFlow.Domain.Entities;
@@ -20,7 +21,7 @@ namespace SimpleCashFlow.Presentation
 
         public MovementModule() : base("/movement")
         {
-            
+
         }
 
         public override void AddRoutes(IEndpointRouteBuilder app)
@@ -53,7 +54,7 @@ namespace SimpleCashFlow.Presentation
             app.MapGet("{id}", async (Guid id, ISender sender) =>
             {
 
-                var result = await sender.Send(new GetMovementByIdQuery(id));
+                var result = await sender.Send(new GetMovementByIdQuery(new MovementId(id)));
 
                 if (result.Value is null)
                 {
@@ -103,6 +104,35 @@ namespace SimpleCashFlow.Presentation
             {
                 Description = "Update financial movement on cash flow with provided id.\nA valid and diferent from zero decimal value must be informed as Amount.\nA movement classification (origin of a credit or purpose of a payment) also is mandatory.",
                 Summary = "Update cash flow movement",
+            });
+
+            app.MapDelete("{id}", async (Guid id, ISender sender) =>
+            {
+                var result = await sender.Send(new DeleteMovementCommand(id));
+
+                if (!result.IsSuccess)
+                {
+                    if (result.HasValidationError)
+                    {
+                        return Results.BadRequest(result);
+                    }
+                    else
+                    {
+                        return Results.NotFound(result);
+                    }
+                }
+
+                return Results.NoContent();
+            })
+            .Produces(StatusCodes.Status204NoContent)
+            .Produces<Result>(StatusCodes.Status400BadRequest, "Application/Json")
+            .WithName("DeleteMovement")
+            .WithTags("Movements")
+            .RequireAuthorization()
+            .WithOpenApi(o => new(o)
+            {
+                Description = "Delete a  financial movement on cash flow with provided id.",
+                Summary = "Delete cash flow movement",
             });
 
         }

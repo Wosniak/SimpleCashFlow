@@ -1,11 +1,10 @@
 ﻿using SimpleCashFlow.Domain.ValueObjects;
-using System.Threading;
 
 namespace SimpleCashFlow.Domain.Abstractions.Repositories
 {
     public interface ICashFlowDailySummaryRepository
     {
-        Task AddAsync(CashFlowDailySummary dailySummary,CancellationToken cancellationToken);
+        Task AddAsync(CashFlowDailySummary dailySummary, CancellationToken cancellationToken);
 
         Task DeleteAsync(Guid id, CancellationToken cancellationToken);
 

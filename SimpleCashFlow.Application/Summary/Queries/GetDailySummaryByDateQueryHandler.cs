@@ -2,11 +2,6 @@
 using SimpleCashFlow.Domain.Abstractions.Repositories;
 using SimpleCashFlow.Domain.Results;
 using SimpleCashFlow.Domain.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SimpleCashFlow.Application.Summary.Queries
 {

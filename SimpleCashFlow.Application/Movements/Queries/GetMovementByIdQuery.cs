@@ -3,6 +3,6 @@ using SimpleCashFlow.Domain.Entities;
 
 namespace SimpleCashFlow.Application.Movements.Queries
 {
-    public record GetMovementByIdQuery(Guid Id) : IQuery<Movement>;
+    public record GetMovementByIdQuery(MovementId Id) : IQuery<Movement>;
 
 }

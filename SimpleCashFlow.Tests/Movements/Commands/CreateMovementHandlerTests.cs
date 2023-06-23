@@ -1,8 +1,8 @@
-using Microsoft.EntityFrameworkCore.Metadata;
 using Moq;
 using SimpleCashFlow.Application.Abstractions.Data;
 using SimpleCashFlow.Application.Movements.Commands.CreateMovement;
 using SimpleCashFlow.Domain.Abstractions.Repositories;
+using Xunit;
 
 namespace SimpleCashFlow.Tests.Movements.Commands
 {
@@ -33,6 +33,11 @@ namespace SimpleCashFlow.Tests.Movements.Commands
             //Assert
             Assert.False(result.IsSuccess);
             Assert.True(result.HasValidationError);
+            Assert.NotNull(result.Error);
+            Assert.NotEmpty(result.Error.Code);
+            Assert.NotEmpty(result.Error.Message);
+            Assert.NotNull(result.Messages);
+            Assert.True(result.Messages.Any());
         }
 
         [Fact]
@@ -51,11 +56,16 @@ namespace SimpleCashFlow.Tests.Movements.Commands
             //Assert
             Assert.False(result.IsSuccess);
             Assert.True(result.HasValidationError);
+            Assert.NotNull(result.Error);
+            Assert.NotEmpty(result.Error.Code);
+            Assert.NotEmpty(result.Error.Message);
+            Assert.NotNull(result.Messages);
+            Assert.True(result.Messages.Any());
         }
 
         [Fact]
-        public async Task Handle_Should_Return_Success()
-        { 
+        public async Task Handle_Should_Return_CreditMovement()
+        {
             //Arrange
 
             var command = new CreateMovementCommand(new DateTime(2023, 06, 10, 10, 10, 0), 10.99m, "Software Consultin for Company XPTO");
@@ -72,6 +82,31 @@ namespace SimpleCashFlow.Tests.Movements.Commands
             Assert.Equal(new DateTime(2023, 06, 10, 10, 10, 0), result.Value.Date);
             Assert.Equal("Software Consultin for Company XPTO", result.Value.Classification);
             Assert.True(result.Value.DomainEvent.Any());
+            Assert.Equal("C", result.Value.MovementType);
+
+
+        }
+
+        [Fact]
+        public async Task Handle_Should_Return_DebitMovement()
+        {
+            //Arrange
+
+            var command = new CreateMovementCommand(new DateTime(2023, 06, 10, 10, 10, 0), -10.99m, "Software Consultin for Company XPTO");
+
+            var handler = new CreateMovementCommandHandler(_movementRepositoryMock.Object, _unitOfWorkMock.Object, new CreateMovementCommandValidator());
+
+            //Act
+
+            var result = await handler.Handle(command, default);
+
+            //Assert
+            Assert.True(result.IsSuccess);
+            Assert.Equal(-10.99m, result.Value.Amount);
+            Assert.Equal(new DateTime(2023, 06, 10, 10, 10, 0), result.Value.Date);
+            Assert.Equal("Software Consultin for Company XPTO", result.Value.Classification);
+            Assert.True(result.Value.DomainEvent.Any());
+            Assert.Equal("D", result.Value.MovementType);
 
 
         }

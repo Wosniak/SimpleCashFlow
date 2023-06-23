@@ -1,19 +1,10 @@
 ﻿using SimpleCashFlow.Domain.DomainEvents;
 using SimpleCashFlow.Domain.Entities.Base;
-using SimpleCashFlow.Domain.Exceptions;
 
 namespace SimpleCashFlow.Domain.Entities
 {
     public class Movement : Entity
     {
-
-        private Movement(MovementId id, DateTime date, decimal amount, string classification)
-        {
-            Id = id;
-            Date = date;
-            Amount = amount;
-            Classification = classification;
-        }
 
         private Movement()
         {
@@ -49,10 +40,6 @@ namespace SimpleCashFlow.Domain.Entities
 
         public void Update(DateTime date, decimal amount, string classificaion)
         {
-            if (Id is null)
-            {
-                throw new CanNotUpdateNonExistingMovementException("The movement been update does not exists.");
-            }
 
             Date = date;
             Amount = amount;
@@ -65,10 +52,6 @@ namespace SimpleCashFlow.Domain.Entities
 
         public void Delete()
         {
-            if (Id is null)
-            {
-                throw new CanNotDeleteNonExistingMovementException("The movement been deleted does not exists.");
-            }
 
             Deleted = true;
             ChangedAt = DateTime.Now;

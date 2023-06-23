@@ -6,13 +6,6 @@ using SimpleCashFlow.Domain.Abstractions.Services;
 using SimpleCashFlow.Domain.DomainEvents;
 using SimpleCashFlow.Domain.Entities;
 using SimpleCashFlow.Domain.ValueObjects;
-using SimpleCashFlow.Infrastructure.Data.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.WebSockets;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SimpleCashFlow.Tests.Movements.Events
 {
@@ -45,7 +38,7 @@ namespace SimpleCashFlow.Tests.Movements.Events
                     It.IsAny<DateOnly>(),
                     default
                     )
-            ).ReturnsAsync(new CashFlowDailySummary(Guid.NewGuid(), new DateOnly(2023,06,15), 200,-100,100, new List<CashFlowDailySummary.MovementItem>()));
+            ).ReturnsAsync(new CashFlowDailySummary(Guid.NewGuid(), new DateOnly(2023, 06, 15), 200, -100, 100, new List<CashFlowDailySummary.MovementItem>()));
 
 
             _movementRepository.Setup(
@@ -67,13 +60,13 @@ namespace SimpleCashFlow.Tests.Movements.Events
             await handler.Handle(notification, default);
 
             //Assert
-            _summaryRepository.Verify(sr =>sr.RemoveCurrentSummaryForDateAsync(It.IsAny<DateOnly>(), default),Times.Once);
+            _summaryRepository.Verify(sr => sr.RemoveCurrentSummaryForDateAsync(It.IsAny<DateOnly>(), default), Times.Once);
             _movementRepository.Verify(mr => mr.GetMovementByIdAsync(It.IsAny<MovementId>(), default), Times.Once);
             _calculateCashFlowService.Verify(s => s.Calculate(It.IsAny<DateOnly>()), Times.Once);
             _summaryRepository.Verify(sr => sr.AddAsync(It.IsAny<CashFlowDailySummary>(), default), Times.Once);
-            _unitOfWork.Verify(u =>  u.SaveChangesAsync(default), Times.Once);
+            _unitOfWork.Verify(u => u.SaveChangesAsync(default), Times.Once);
 
-            
+
 
 
 
