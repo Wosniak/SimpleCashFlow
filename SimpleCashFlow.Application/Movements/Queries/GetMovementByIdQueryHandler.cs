@@ -17,7 +17,7 @@ namespace SimpleCashFlow.Application.Movements.Queries
 
         public async Task<Result<Movement>> Handle(GetMovementByIdQuery request, CancellationToken cancellationToken)
         {
-            var movement = await _movementRepository.GetMovementByIdAsync(new MovementId(request.Id), cancellationToken);
+            var movement = await _movementRepository.GetMovementByIdAsync(request.Id, cancellationToken);
 
             return movement;
 

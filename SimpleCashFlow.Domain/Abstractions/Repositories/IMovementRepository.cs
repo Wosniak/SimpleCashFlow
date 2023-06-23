@@ -9,7 +9,7 @@ namespace SimpleCashFlow.Domain.Abstractions.Repositories
 
         void Update(Movement cashFlowMovement);
 
-        Task Delete(Movement cashFlowMovement, CancellationToken cancellationToken);
+        void Delete(Movement cashFlowMovement);
 
         Task<bool> MovementExistsAsync(MovementId id, CancellationToken cancellationToken);
 

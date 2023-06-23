@@ -3,11 +3,6 @@ using SimpleCashFlow.Application.Abstractions.Data;
 using SimpleCashFlow.Application.Movements.Commands.UpdateMovement;
 using SimpleCashFlow.Domain.Abstractions.Repositories;
 using SimpleCashFlow.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SimpleCashFlow.Tests.Movements.Commands
 {
@@ -27,7 +22,7 @@ namespace SimpleCashFlow.Tests.Movements.Commands
         {
             //Arrange
 
-            var movement =  Movement.Create(new DateTime(2023, 06, 10, 10, 10, 0), 10, "Software Consultin for Company XPTO");
+            var movement = Movement.Create(new DateTime(2023, 06, 10, 10, 10, 0), 10, "Software Consultin for Company XPTO");
 
             _movementRepositoryMock.Setup(
                 r => r.GetMovementByIdAsync(
@@ -47,6 +42,11 @@ namespace SimpleCashFlow.Tests.Movements.Commands
             //Assert
             Assert.False(result.IsSuccess);
             Assert.True(result.HasValidationError);
+            Assert.NotNull(result.Error);
+            Assert.NotEmpty(result.Error.Code);
+            Assert.NotEmpty(result.Error.Message);
+            Assert.NotNull(result.Messages);
+            Assert.True(result.Messages.Any());
         }
 
         [Fact]
@@ -74,6 +74,11 @@ namespace SimpleCashFlow.Tests.Movements.Commands
             //Assert
             Assert.False(result.IsSuccess);
             Assert.True(result.HasValidationError);
+            Assert.NotNull(result.Error);
+            Assert.NotEmpty(result.Error.Code);
+            Assert.NotEmpty(result.Error.Message);
+            Assert.NotNull(result.Messages);
+            Assert.True(result.Messages.Any());
         }
 
 
@@ -102,6 +107,11 @@ namespace SimpleCashFlow.Tests.Movements.Commands
             //Assset
 
             Assert.False(result.IsSuccess);
+            Assert.False(result.HasValidationError);
+            Assert.NotNull(result.Error);
+            Assert.NotEmpty(result.Error.Code);
+            Assert.NotEmpty(result.Error.Message);
+            Assert.Null(result.Messages);
 
         }
 

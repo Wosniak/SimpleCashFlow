@@ -4,14 +4,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using SimpleCashFlow.Application.Summary.Queries;
-using SimpleCashFlow.Domain.Abstractions.Repositories;
-using SimpleCashFlow.Domain.ValueObjects;
-using SimpleCashFlow.Presentation.Responses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SimpleCashFlow.Presentation
 {
@@ -25,11 +17,12 @@ namespace SimpleCashFlow.Presentation
 
         public override void AddRoutes(IEndpointRouteBuilder app)
         {
-            app.MapGet("/{date}", async (DateOnly date, ISender sender) => {
+            app.MapGet("/{date}", async (DateOnly date, ISender sender) =>
+            {
 
                 var result = await sender.Send(new GetDailySummaryByDateQuery(date));
 
-                if(result.Value is null)
+                if (result.Value is null)
                 {
                     return Results.NotFound();
                 }

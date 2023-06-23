@@ -25,7 +25,6 @@
 
         public static Result Fail(Error error) => new(false, error);
 
-        public static Result<TReturn> Fail<TReturn>(Error error) => new(error);
 
         public bool HasValidationError { get; private set; }
 
